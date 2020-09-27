@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="ConsoleGolfScores" transaction-type="RESOURCE_LOCAL">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<class>model.GolfScore</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://cis175.ccgazhqc5c6c.us-east-1.rds.amazonaws.com/activity"/>
+			<property name="javax.persistence.jdbc.user" value="rfox5"/>
+			<property name="javax.persistence.jdbc.password" value="Mollie2001"/>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+		</properties>
+	</persistence-unit>
+</persistence>
