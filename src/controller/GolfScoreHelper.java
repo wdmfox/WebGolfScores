@@ -22,7 +22,7 @@ import model.GolfScore;
 
 public class GolfScoreHelper {
 
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ConsoleGolfScores");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("WebGolfTrips");
 	
 	// insertScore is executed to take in the GolfScore parameter
 	// and add it to the SCORES table
@@ -119,6 +119,17 @@ public class GolfScoreHelper {
 		List <GolfScore> foundScores = typedQuery.getResultList();
 		em.close();
 		return foundScores;
+	}
+	
+	// searchForScoreByScore returns a List of GolfScore objects
+	// from the SCORES table that match the score passed in
+	// as a parameter
+	public GolfScore searchForGolfScoreById(Integer tempId) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		GolfScore found = em.find(GolfScore.class, tempId);
+		em.close();
+		return found;
 	}
 	
 	// cleanUp closes the database connection
